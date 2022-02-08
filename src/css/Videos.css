@@ -1,0 +1,13 @@
+.video{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 2rem;
+    background-color: white;
+    margin: 2rem;
+    padding: 2rem;
+}
+.videoItem{
+    width: 500px;
+    height: 300px;
+}

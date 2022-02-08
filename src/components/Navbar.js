@@ -3,7 +3,8 @@ import searchVideos from "./searchVideos";
 import ReactPlayer from "react-player";
 
 import "../css/Navbar.css";
-function Navbar() {
+import Profile from "./Profile";
+function Navbar(props) {
   const [search, setSearch] = useState("");
   const [show, setShow] = useState("no");
   const [data, setData] = useState({
@@ -28,7 +29,7 @@ function Navbar() {
           "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=" +
           search +
           "&" +
-          "numResults=3";
+          "numResults=2";
         setIsError(200);
         fetch(videoUrl)
           .then((result) => {
@@ -52,7 +53,7 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light " >
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light " >
         <div className="container-fluid">
           <img alt="logo" className="logoimg" src="./logo.png" />
           <button
@@ -81,7 +82,7 @@ function Navbar() {
               />
               <button className="btn btn-outline-primary">Search</button>
             </form>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ml-4">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -94,9 +95,9 @@ function Navbar() {
                   <img
                     alt="user img"
                     className="userimg"
-                    src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+                    src="https://cdn-icons-png.flaticon.com/512/2964/2964514.png"
                   />
-                  User
+                  {props.username}
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
@@ -126,14 +127,18 @@ function Navbar() {
             className="closeimg"
           />
 
+          <div className="showvideo">
           {data.results.map((item) => (
-            <ReactPlayer
-              width="100px"
-              height="100px"
+            <div className="singleVideo">
+              <ReactPlayer
+              width="300px"
+              height="300px"
               controls
               url={item.video}
             />
+            </div>
           ))}
+            </div>
         </div>
       ) : (
         <h1></h1>

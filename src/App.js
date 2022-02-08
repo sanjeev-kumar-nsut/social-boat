@@ -1,8 +1,12 @@
 import "./css/App.css";
+import "./css/Profile.css";
+import "./css/Videos.css";
+import "./css/Footer.css";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import Videos from "./components/Videos";
 import { useEffect, useState } from "react";
+import Footer from "./components/footer";
 
 function App() {
   const [data, setData] = useState({
@@ -45,9 +49,10 @@ function App() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar username={data.profile.name} />
       <Profile data={data} loading={loading} isError={isError} />
       <Videos />
+      <Footer/>
     </div>
   );
 }

@@ -5,36 +5,54 @@
 .userimg{
     width: 3rem;
     height: 3rem;
+    margin-right: 0.5rem;
 }
 .closeimg{
     width: 3rem;
     height: 3rem;
+    border: 2px solid green;
 }
 .showbox{
     width: 80%;
     margin-left: 10%;
-    height: 50vh;
+    height: 60vh;
     border:2px solid black;
     position:absolute;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.showvideo{
+    width: 100%;
+    display: flex;
+    border: 2px solid green;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+}
+.singleVideo{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
 }
 .navbar{
-    background-color: #e3f2fd
+    background-color: #e3f2fd;
+    margin-bottom: 15rem;
 }
 .container-fluid{
     width: 100%;
-    border: 2px solid black;
-    
     
 }
 .collapse{
-    border: 2px solid green;
-    margin-left: 20%;
+    margin-left: 17%;
 }
 .form-control{
+    margin-left: 4rem;
     width: 25rem;
 }
 .navbar-nav{
-    border: 2px solid red;
-    margin-left: 30%;
+    margin-left: 20%;
 }

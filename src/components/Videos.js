@@ -13,7 +13,7 @@ function Videos() {
   const [isError, setIsError] = useState(200);
   useEffect(() => {
     fetch(
-      "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=gym&numResults=10"
+      "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=gym&numResults=2"
     )
       .then((result) => {
         if (!result.ok) {
@@ -40,11 +40,13 @@ function Videos() {
     return <h1>Loading.....</h1>;
   } else {
     return (
-      <>
+      <div className="video">
         {data.results.map((item) => (
-          <ReactPlayer width="100px" height="100px" controls url={item.video} />
+          <div className="videoItem">
+          <ReactPlayer width="500px" height="300px" controls url={item.video} />
+          </div>
         ))}
-      </>
+      </div>
     );
   }
 }
