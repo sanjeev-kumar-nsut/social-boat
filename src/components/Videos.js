@@ -5,7 +5,7 @@ function Videos() {
     results: [
       {
         video:
-          "https://www.youtube.com/watch?v=K7u0aNj_kKQ&list=PL8p2I9GklV47BCAjiCtuV_liN9IwAl8pM&index=52",
+          "",
       },
     ],
   });
@@ -35,9 +35,19 @@ function Videos() {
         console.warn("error :", err);
       });
   }, []);
-  if (isError === 505 || isError === 4000) return <h1>{isError} Error</h1>;
+  if (isError === 505 || isError === 4000) {
+    return (
+       <div className="video">
+         <h1>{isError} Error</h1>
+       </div>
+    );
+  }
   else if (loading) {
-    return <h1>Loading.....</h1>;
+    return (
+      <div className="video">
+        <h1>Loading.....</h1>
+      </div>
+    );
   } else {
     return (
       <div className="video">

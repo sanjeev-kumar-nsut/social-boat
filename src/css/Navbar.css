@@ -10,13 +10,12 @@
 .closeimg{
     width: 3rem;
     height: 3rem;
-    border: 2px solid green;
+    cursor: pointer;
 }
 .showbox{
     width: 80%;
     margin-left: 10%;
-    height: 60vh;
-    border:2px solid black;
+    height: 80vh;
     position:absolute;
     background-color: white;
     display: flex;
@@ -27,7 +26,6 @@
 .showvideo{
     width: 100%;
     display: flex;
-    border: 2px solid green;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
@@ -54,5 +52,5 @@
     width: 25rem;
 }
 .navbar-nav{
-    margin-left: 20%;
+    margin-left: 17%;
 }

@@ -1,0 +1,11 @@
+.edit{
+    margin-top:10rem;
+    margin-bottom: 4rem;
+}
+.editForm h1{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.editInput{
+    font-size: 2rem;
+    width: 50rem;
+}

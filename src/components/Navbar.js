@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import searchVideos from "./searchVideos";
 import ReactPlayer from "react-player";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 import "../css/Navbar.css";
 import Profile from "./Profile";
@@ -11,7 +12,7 @@ function Navbar(props) {
     results: [
       {
         video:
-          "https://www.youtube.com/watch?v=K7u0aNj_kKQ&list=PL8p2I9GklV47BCAjiCtuV_liN9IwAl8pM&index=52",
+          "",
       },
     ],
   });
@@ -48,7 +49,7 @@ function Navbar(props) {
             console.warn("error :", err.message);
           });
       }
-    }, 5000);
+    });
   });
 
   return (
@@ -95,15 +96,20 @@ function Navbar(props) {
                   <img
                     alt="user img"
                     className="userimg"
-                    src="https://cdn-icons-png.flaticon.com/512/2964/2964514.png"
+                    src={props.img}
                   />
                   {props.username}
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/edit">
                       Edit
                     </a>
+                  </li>
+                  <li>
+                    <Router>
+                      <Link to="/edit">Edit 2</Link>
+                    </Router>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
