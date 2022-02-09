@@ -106,11 +106,7 @@ function Navbar(props) {
                       Edit
                     </a>
                   </li>
-                  <li>
-                    <Router>
-                      <Link to="/edit">Edit 2</Link>
-                    </Router>
-                  </li>
+                  
                   <li>
                     <a className="dropdown-item" href="#">
                       Logout
