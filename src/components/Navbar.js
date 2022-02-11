@@ -18,7 +18,6 @@ function Navbar(props) {
   });
   const [isError, setIsError] = useState(200);
   useEffect(() => {
-    setTimeout(() => {
       console.warn("search  value :", search);
       if (search === "") {
         console.warn("show equal to no");
@@ -26,7 +25,13 @@ function Navbar(props) {
       } else {
         console.warn("show equal to yes");
         setShow("yes");
-        const videoUrl =
+        
+      }
+  });
+
+  useEffect(()=>{
+    console.log("search value changed");
+    const videoUrl =
           "https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=" +
           search +
           "&" +
@@ -48,10 +53,7 @@ function Navbar(props) {
           .catch((err) => {
             console.warn("error :", err.message);
           });
-      }
-    });
-  });
-
+  },[search]);
   return (
     <div>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light " >
@@ -73,7 +75,12 @@ function Navbar(props) {
               <input
                 className="form-control form-group-lg me-2"
                 onChange={(event) => {
-                  setSearch(event.target.value);
+                  const prev = search;
+                  const curr = event.target.value;
+                  if(prev!=curr)
+                  {
+                    setSearch(curr);
+                  }
                 }}
                 value={search}
                 type="search"
@@ -118,7 +125,7 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
-      {show === "yes" && isError != 505 && isError != 400 ? (
+      {show === "yes"  ? (
         <div className="showbox">
           <img
             alt="close image"
@@ -129,18 +136,22 @@ function Navbar(props) {
             className="closeimg"
           />
 
-          <div className="showvideo">
-          {data.results.map((item) => (
-            <div className="singleVideo">
-              <ReactPlayer
-              width="300px"
-              height="300px"
-              controls
-              url={item.video}
-            />
-            </div>
-          ))}
-            </div>
+          { (isError==200)?(
+            <div className="showvideo">
+            {data.results.map((item) => (
+              <div className="singleVideo">
+                <ReactPlayer
+                width="300px"
+                height="300px"
+                controls
+                url={item.video}
+              />
+              </div>
+            ))}
+              </div>
+          ):(
+            <h1 className="center">ERROR</h1>
+          )}
         </div>
       ) : (
         <h1></h1>
